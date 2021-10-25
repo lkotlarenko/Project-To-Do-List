@@ -136,7 +136,7 @@ jobs:
 
       - name: Run Cypress evaluator
         id: evaluator
-        uses: ./.github/actions/cypress-evaluator
+        uses: betrybe/cypress-evaluator-action@v7
         with:
           pr_author_username: ${{ github.event.inputs.pr_author_username }}
 
