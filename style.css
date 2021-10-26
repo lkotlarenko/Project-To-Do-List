@@ -28,13 +28,13 @@ body {
 }
 
 .completed {
-  text-decoration: line-through solid rgb(0, 0, 0);
+  text-decoration: line-through solid black;
 }
 
 .selected {
-  background-color: rgb(128, 128, 128);
+  background-color: gray;
 }
 
 #tools {
-    padding-top: 15px;
+  padding-top: 15px;
 }
