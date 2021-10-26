@@ -4,6 +4,7 @@ const taskList = document.getElementById('lista-tarefas');
 const btnClearList = document.getElementById('apaga-tudo');
 const btnRemove = document.getElementById('remover-finalizados');
 const btnRemoveS = document.getElementById('remover-selecionado');
+const btnSave = document.getElementById('salvar-tarefas');
 
 function lineThrough(event) {
   const task = event.target;
@@ -59,3 +60,18 @@ function removeSelected() {
 }
 
 btnRemoveS.addEventListener('click', removeSelected);
+
+function saveList() {
+  localStorage.setItem('tasks', taskList.innerHTML);
+}
+
+btnSave.addEventListener('click', saveList);
+
+function syncSave() {
+  const localList = localStorage.getItem('tasks');
+  if (localList) {
+    taskList.innerHTML = localList;
+  }
+}
+
+window.onload = syncSave;
