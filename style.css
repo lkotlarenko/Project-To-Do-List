@@ -10,7 +10,19 @@ body {
   margin-bottom: 15px;
 }
 
+#funcionamento {
+  padding-bottom: 15px;
+}
+
 #title {
   margin: 15px;
   font-size: 30px;
+}
+
+#texto-tarefa {
+  width: 155px;
+}
+
+#lista-tarefas {
+  padding-top: 15px;
 }
