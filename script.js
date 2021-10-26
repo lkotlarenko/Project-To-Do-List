@@ -1,6 +1,7 @@
 const btnAddTask = document.getElementById('criar-tarefa');
 const inputNewTask = document.getElementById('texto-tarefa');
 const taskList = document.getElementById('lista-tarefas');
+const btnClearList = document.getElementById('apaga-tudo');
 
 function lineThrough(event) {
   const task = event.target;
@@ -30,3 +31,13 @@ btnAddTask.addEventListener('click', () => {
   inputNewTask.value = '';
   selectTask();
 });
+
+function clearList() {
+  const listTasks = document.querySelectorAll('li');
+  const listLength = Object.keys(listTasks).length;
+  for (let i = 0; i < listLength; i += 1) {
+    taskList.removeChild(listTasks[i]);
+  }
+}
+
+btnClearList.addEventListener('click', clearList);

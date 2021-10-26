@@ -34,3 +34,7 @@ body {
 .selected {
   background-color: rgb(128, 128, 128);
 }
+
+#tools {
+    padding-top: 15px;
+}
