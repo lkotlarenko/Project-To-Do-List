@@ -2,3 +2,15 @@
   margin: 0;
   padding: 0;
 }
+
+body {
+  font-family: Segoe UI, sans-serif;
+  background: whitesmoke;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+#title {
+  margin: 15px;
+  font-size: 30px;
+}
