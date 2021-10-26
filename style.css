@@ -8,6 +8,19 @@ body {
   background: whitesmoke;
   text-align: center;
   margin-bottom: 15px;
+  background-color: #ffd76a;
+}
+
+button {
+  border: none;
+  color: black;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 2px 2px;
+  border-radius: 12px;
 }
 
 #funcionamento {
@@ -33,8 +46,34 @@ body {
 
 .selected {
   background-color: gray;
+  color: aliceblue;
 }
 
 #tools {
   padding-top: 15px;
 }
+
+#mover-baixo,
+#mover-cima {
+  width: 45px;
+  background-color: #161e54;
+  color: white;
+}
+
+#texto-tarefa {
+  background-color: white;
+  font-weight: 700;
+  color: black;
+}
+
+#apaga-tudo,
+#remover-selecionado,
+#remover-finalizados {
+  background-color: #ff5151;
+}
+
+#salvar-tarefas,
+#criar-tarefa {
+  background-color: #88e0ef;
+}
+/* usadas algumas cores daqui https://colorhunt.co/palette/88e0ef161e54ff5151ff9b6a */

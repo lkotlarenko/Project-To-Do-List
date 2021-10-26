@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lista de Tarefas</title>
     <link rel="stylesheet" href="style.css" />
+    <!-- favicon from here: https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Twemoji_1f4dd.svg/768px-Twemoji_1f4dd.svg.png -->
+    <link
+      rel="shortcut icon"
+      href="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Twemoji_1f4dd.svg/768px-Twemoji_1f4dd.svg.png"
+      type="image/x-icon"
+    />
   </head>
   <body>
     <header>
@@ -19,14 +25,16 @@
         <input
           id="texto-tarefa"
           type="text"
-          placeholder="Escreva sua tarefa aqui :)"
+          placeholder="Inserir lembrete aqui :D"
         />
         <button id="criar-tarefa">Adicionar</button>
         <ol id="lista-tarefas"></ol>
       </section>
       <section id="tools">
         <button id="apaga-tudo">Apagar Lista</button>
+        <button id="mover-baixo">🠗</button>
         <button id="remover-selecionado">Remover Selecionado</button>
+        <button id="mover-cima">🠕</button>
         <button id="remover-finalizados">Remover Completos</button>
         <button id="salvar-tarefas">Salvar</button>
       </section>

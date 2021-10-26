@@ -1,10 +1,12 @@
-const btnAddTask = document.getElementById('criar-tarefa');
-const inputNewTask = document.getElementById('texto-tarefa');
 const taskList = document.getElementById('lista-tarefas');
+const inputNewTask = document.getElementById('texto-tarefa');
+const btnAddTask = document.getElementById('criar-tarefa');
 const btnClearList = document.getElementById('apaga-tudo');
 const btnRemove = document.getElementById('remover-finalizados');
 const btnRemoveS = document.getElementById('remover-selecionado');
 const btnSave = document.getElementById('salvar-tarefas');
+const btnDown = document.getElementById('mover-baixo');
+const btnUp = document.getElementById('mover-cima');
 
 function lineThrough(event) {
   const task = event.target;
@@ -68,6 +70,28 @@ function syncSave() {
   }
 }
 
+function mvDown() {
+  const selected = document.querySelector('.selected');
+  if (!selected) {
+    return;
+  }
+  const downTask = selected.nextSibling;
+  if (downTask) {
+    downTask.after(selected);
+  }
+}
+
+function mvUp() {
+  const selected = document.querySelector('.selected');
+  if (!selected) {
+    return;
+  }
+  const upTask = selected.previousSibling;
+  if (upTask) {
+    upTask.before(selected);
+  }
+}
+
 btnClearList.addEventListener('click', clearList);
 
 btnRemove.addEventListener('click', removeDone);
@@ -77,5 +101,9 @@ btnRemoveS.addEventListener('click', removeSelected);
 btnSave.addEventListener('click', saveList);
 
 btnAddTask.addEventListener('click', createTask);
+
+btnDown.addEventListener('click', mvDown);
+
+btnUp.addEventListener('click', mvUp);
 
 window.onload = syncSave;
