@@ -2,17 +2,23 @@ const btnAddTask = document.getElementById('criar-tarefa');
 const inputNewTask = document.getElementById('texto-tarefa');
 const taskList = document.getElementById('lista-tarefas');
 
+function lineThrough(event) {
+  const task = event.target;
+  task.classList.toggle('completed');
+}
+
 function selectTask() {
   document.querySelectorAll('li').forEach((element) => {
+    element.addEventListener('dblclick', lineThrough);
     element.addEventListener('click', (elementTarget) => {
       const selectedTask = elementTarget.target;
       const liElement = document.querySelectorAll('li');
       for (let i = 0; i < liElement.length; i += 1) {
-        if (liElement[i].style.backgroundColor === 'rgb(128, 128, 128)') {
-          liElement[i].removeAttribute('style');
+        if (liElement[i].className.includes('selected')) {
+          liElement[i].classList.toggle('selected');
         }
       }
-      selectedTask.style.backgroundColor = 'rgb(128,128,128)';
+      selectedTask.classList.toggle('selected');
     });
   });
 }
