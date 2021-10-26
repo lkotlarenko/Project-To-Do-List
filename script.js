@@ -27,13 +27,13 @@ function selectTask() {
   });
 }
 
-btnAddTask.addEventListener('click', () => {
+function createTask() {
   const newTask = document.createElement('li');
   newTask.innerText = inputNewTask.value;
   taskList.appendChild(newTask);
   inputNewTask.value = '';
   selectTask();
-});
+}
 
 function clearList() {
   const listTasks = document.querySelectorAll('li');
@@ -43,8 +43,6 @@ function clearList() {
   }
 }
 
-btnClearList.addEventListener('click', clearList);
-
 function removeDone() {
   const listDone = document.querySelectorAll('.completed');
   const doneLength = Object.keys(listDone).length;
@@ -53,25 +51,31 @@ function removeDone() {
   }
 }
 
-btnRemove.addEventListener('click', removeDone);
-
 function removeSelected() {
   taskList.removeChild(document.querySelector('.selected'));
 }
 
-btnRemoveS.addEventListener('click', removeSelected);
-
+// função salvar feita apos consultar https://gomakethings.com/saving-html-to-localstorage-with-vanilla-js/
 function saveList() {
   localStorage.setItem('tasks', taskList.innerHTML);
 }
-
-btnSave.addEventListener('click', saveList);
 
 function syncSave() {
   const localList = localStorage.getItem('tasks');
   if (localList) {
     taskList.innerHTML = localList;
+    selectTask();
   }
 }
+
+btnClearList.addEventListener('click', clearList);
+
+btnRemove.addEventListener('click', removeDone);
+
+btnRemoveS.addEventListener('click', removeSelected);
+
+btnSave.addEventListener('click', saveList);
+
+btnAddTask.addEventListener('click', createTask);
 
 window.onload = syncSave;
