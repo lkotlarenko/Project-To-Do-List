@@ -3,6 +3,7 @@ const inputNewTask = document.getElementById('texto-tarefa');
 const taskList = document.getElementById('lista-tarefas');
 const btnClearList = document.getElementById('apaga-tudo');
 const btnRemove = document.getElementById('remover-finalizados');
+const btnRemoveS = document.getElementById('remover-selecionado');
 
 function lineThrough(event) {
   const task = event.target;
@@ -45,7 +46,6 @@ btnClearList.addEventListener('click', clearList);
 
 function removeDone() {
   const listDone = document.querySelectorAll('.completed');
-  console.log(listDone);
   const doneLength = Object.keys(listDone).length;
   for (let i = 0; i < doneLength; i += 1) {
     taskList.removeChild(listDone[i]);
@@ -53,3 +53,9 @@ function removeDone() {
 }
 
 btnRemove.addEventListener('click', removeDone);
+
+function removeSelected() {
+  taskList.removeChild(document.querySelector('.selected'));
+}
+
+btnRemoveS.addEventListener('click', removeSelected);
