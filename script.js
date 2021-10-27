@@ -7,6 +7,7 @@ const btnRemoveS = document.getElementById('remover-selecionado');
 const btnSave = document.getElementById('salvar-tarefas');
 const btnDown = document.getElementById('mover-baixo');
 const btnUp = document.getElementById('mover-cima');
+const secTools = document.getElementById('tools');
 
 function lineThrough(event) {
   const task = event.target;
@@ -73,9 +74,18 @@ function createTask() {
   }
 }
 
+function saveMsgCleaner() {
+  secTools.removeChild(document.querySelector('.save-msg'));
+}
+
 // função salvar feita apos consultar https://gomakethings.com/saving-html-to-localstorage-with-vanilla-js/
 function saveList() {
   localStorage.setItem('tasks', taskList.innerHTML);
+  const saveMsg = document.createElement('p');
+  saveMsg.innerText = 'Lista Salva ✅';
+  saveMsg.className = 'save-msg';
+  secTools.appendChild(saveMsg);
+  setTimeout(saveMsgCleaner, 2100);
 }
 
 function syncSave() {
