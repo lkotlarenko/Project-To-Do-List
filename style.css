@@ -9,6 +9,9 @@ body {
   text-align: center;
   margin-bottom: 15px;
   background-color: #ffd76a;
+  font-size: 20px;
+  height: 100%;
+  padding-bottom: 35px;
 }
 
 button {
@@ -21,6 +24,24 @@ button {
   font-size: 16px;
   margin: 2px 2px;
   border-radius: 12px;
+  font-size: 20px;
+}
+
+button:hover {
+  transform: scale(1.07);
+  color: white;
+  border: 1px solid black;
+}
+
+li:hover {
+  color: white;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 35px;
 }
 
 #funcionamento {
@@ -29,11 +50,17 @@ button {
 
 #title {
   margin: 15px;
-  font-size: 30px;
+  font-size: 37px;
 }
 
 #texto-tarefa {
-  width: 155px;
+  width: 230px;
+  font-size: 20px;
+}
+
+#texto-tarefa:hover {
+  transform: scale(1.07);
+  border: 2px solid black;
 }
 
 #lista-tarefas {
@@ -42,6 +69,7 @@ button {
 
 .completed {
   text-decoration: line-through solid black;
+  opacity: 65%;
 }
 
 .selected {
@@ -54,10 +82,17 @@ button {
 }
 
 #mover-baixo,
-#mover-cima {
+#mover-cima,
+#remover-selecionado {
   width: 45px;
   background-color: #161e54;
   color: white;
+}
+
+#mover-baixo:hover,
+#mover-cima:hover,
+#remover-selecionado {
+  border: 1px solid white;
 }
 
 #texto-tarefa {
@@ -67,7 +102,6 @@ button {
 }
 
 #apaga-tudo,
-#remover-selecionado,
 #remover-finalizados {
   background-color: #ff5151;
 }

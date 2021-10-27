@@ -13,30 +13,6 @@ function lineThrough(event) {
   task.classList.toggle('completed');
 }
 
-function selectTask() {
-  document.querySelectorAll('li').forEach((element) => {
-    element.addEventListener('dblclick', lineThrough);
-    element.addEventListener('click', (elementTarget) => {
-      const selectedTask = elementTarget.target;
-      const liElement = document.querySelectorAll('li');
-      for (let i = 0; i < liElement.length; i += 1) {
-        if (liElement[i].className.includes('selected')) {
-          liElement[i].classList.toggle('selected');
-        }
-      }
-      selectedTask.classList.toggle('selected');
-    });
-  });
-}
-
-function createTask() {
-  const newTask = document.createElement('li');
-  newTask.innerText = inputNewTask.value;
-  taskList.appendChild(newTask);
-  inputNewTask.value = '';
-  selectTask();
-}
-
 function clearList() {
   const listTasks = document.querySelectorAll('li');
   const listLength = Object.keys(listTasks).length;
@@ -55,6 +31,46 @@ function removeDone() {
 
 function removeSelected() {
   taskList.removeChild(document.querySelector('.selected'));
+}
+
+function selectTask() {
+  document.querySelectorAll('li').forEach((element) => {
+    element.addEventListener('dblclick', lineThrough);
+    element.addEventListener('click', (elementTarget) => {
+      const selectedTask = elementTarget.target;
+      const liElement = document.querySelectorAll('li');
+      for (let i = 0; i < liElement.length; i += 1) {
+        if (liElement[i].className.includes('selected')) {
+          liElement[i].classList.toggle('selected');
+        }
+      }
+      selectedTask.classList.toggle('selected');
+    });
+  });
+}
+
+function inputEnter(event) {
+  if (event.key === 'Enter' && inputNewTask.value.length > 0) {
+    const newTask = document.createElement('li');
+    newTask.innerText = inputNewTask.value;
+    taskList.appendChild(newTask);
+    inputNewTask.value = '';
+    selectTask();
+  } else if (inputNewTask.value.length === 0) {
+    alert('Insira um lembrete 🤔');
+  }
+}
+
+function createTask() {
+  if (inputNewTask.value.length > 0) {
+    const newTask = document.createElement('li');
+    newTask.innerText = inputNewTask.value;
+    taskList.appendChild(newTask);
+    inputNewTask.value = '';
+    selectTask();
+  } else if (inputNewTask.value.length === 0) {
+    alert('Insira um lembrete 🤔');
+  }
 }
 
 // função salvar feita apos consultar https://gomakethings.com/saving-html-to-localstorage-with-vanilla-js/
@@ -105,5 +121,7 @@ btnAddTask.addEventListener('click', createTask);
 btnDown.addEventListener('click', mvDown);
 
 btnUp.addEventListener('click', mvUp);
+
+inputNewTask.addEventListener('keyup', inputEnter);
 
 window.onload = syncSave;
